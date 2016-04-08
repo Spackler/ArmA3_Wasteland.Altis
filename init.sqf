@@ -79,7 +79,7 @@ if (!isDedicated) then
 if (isServer) then
 {
 	diag_log format ["############################# %1 #############################", missionName];
-	diag_log "WASTELAND SERVER - Initializing Server";
+	diag_log "Bravo Foxtrot Company SERVER - Initializing Server";
 	[] execVM "server\init.sqf";
 };
 
@@ -88,8 +88,17 @@ if (hasInterface || isServer) then
 	//init 3rd Party Scripts
 	[] execVM "addons\R3F_ARTY_AND_LOG\init.sqf";
 	[] execVM "addons\proving_ground\init.sqf";
+	[] execVM "addons\disableThermal\disableThermal.sqf";
 	[] execVM "addons\JumpMF\init.sqf";
 	[] execVM "addons\outlw_magRepack\MagRepack_init.sqf";
 	[] execVM "addons\lsd_nvg\init.sqf";
+	[] execVM "addons\EtV\init.sqf"; 
+	[] execVM "addons\Grenades\initGrenades.sqf"; // Toxic Gas Grenades
+	[] execVM "addons\APOC_Airdrop_Assistance\init.sqf";
+	[] execVM "addons\laptop\init.sqf";                   // Addon for hack laptop mission
+	[] execVM "addons\vactions\functions.sqf";
+	[] execVM "addons\HvT\HvT.sqf";
+	[] execVM "addons\zlt_fastrope\zlt_fastrope.sqf";     // Fastrope
+	[] execVM "addons\spackler\gear\default_gear.sqf";						//add extra gear if UID in certain files
 	if (isNil "drn_DynamicWeather_MainThread") then { drn_DynamicWeather_MainThread = [] execVM "addons\scripts\DynamicWeatherEffects.sqf" };
 };

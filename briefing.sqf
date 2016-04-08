@@ -444,6 +444,16 @@ player createDiaryRecord ["infos",
 
 player createDiaryRecord ["infos",
 [
+"Donations",
+"
+<br/><font size='16'>Donations</font>
+<br/>
+<br/>If you would like to donate to this server go to BravoFoxtrotCompany.com, Donate on our website. Thank you!
+"
+]];
+
+player createDiaryRecord ["infos",
+[
 "Hints and Tips",
 "
 <br/><font size='18'>A3Wasteland</font>
@@ -464,31 +474,27 @@ player createDiaryRecord ["infos",
 
 player createDiaryRecord ["infos",
 [
-"About Wasteland",
+"Rules",
 "
-<br/>Wasteland is a team versus team versus team sandbox survival experience. The objective of this mission is to rally your faction, scavenge supplies, weapons, and vehicles, and destroy the other factions. It is survival at its best! Keep in mind this is a work in progress, please direct your reports to http://forums.a3wasteland.com/
+<br/><font size='16'>Rules</font>
+<br/><font size='15'>List of Rules for this server</font>
 <br/>
-<br/>FAQ:
+<br/>No talking in Global or Side Channels (For Independent only)
 <br/>
-<br/>Q. What am I supposed to do here?
-<br/>A. See the above description
+<br/>No exploiting. (Any form of cheating or exploiting to gain advantage over another player. You will be instantly kick if caught. If you are caught again you will be banned from our server)
 <br/>
-<br/>Q. Where can I get a gun?
-<br/>A. Weapons are found in one of three places, first in ammo crates that come as rewards from missions, inside and outside buildings, and second, in the gear section of the vehicles, which also randomly spawn around the map. The last place to find a gun would be at the gunshops located throughout the map. You can also find them on dead players whose bodies have not yet been looted.
+<br/>Hacking or scripting of any type will be instantly banned from this server. (Do not waste your time talking to Admin, we have zero tolerance for these actions.)
 <br/>
-<br/>Q. What are the blue circles on the map?
-<br/>A. The circles represent town limits. If friendly soldiers are in a town, you can spawn there from the re-spawn menu; however if there is an enemy presence, you will not be able to spawn there.
+<br/>No spamming of channels. (Do not spam any channel with constant text or carry on an argument through VON/typing. You will be warned then kicked)
 <br/>
-<br/>Q. Why is it so dark, I cant see.
-<br/>A. The server has a day/night cycle just like in the real world, and as such, night time is a factor in your survival. It is recommended that you find sources of light or use your Nightvision Goggles as the darkness sets in.
+<br/>Do not disrespect other players. (This is a video game. Have fun and enjoy your time.)
 <br/>
-<br/>Q. Is it ok for me to shoot my team mates?
-<br/>A. If you are member of BLUFOR or OPFOR teams, then you are NOT allowed to shoot or steal items and vehicles from other players. If you play as Independent, you are free to engage anyone as well as team up with anyone you want.
+<br/>Do not go to spawn island. Anyone caught on spawn island will be permanently banned from our server.
 <br/>
-<br/>Q. Whats with the canisters, baskets and big bags?
-<br/>A. This game has a food and water system that you must stay on top of if you hope to survive. You can collect food and water from food sacks and wells, or baskets and plastic canisters dropped by dead players. Food and water will also randomly spawn around the map.
+<br/>Absolutely no ramming. That includes Air and Land Vehicles. You will be kicked, if caught again will be banned based on admin discretion.
 <br/>
-<br/>Q. I saw someone breaking a rule, what do I do?
-<br/>A. Simply go into global chat and get the attention of one of the admins or visit our forums, and make a report if the offense is serious.
+<br/>Anyone caught combat logging as an HVT will have the money in hand wiped. Caught again for the same offense your bank account will be wiped.
+<br/>
+<br/>No Base building inside or around ANY store. If an Admin see's objects around store they will delete without warning.
 "
 ]];

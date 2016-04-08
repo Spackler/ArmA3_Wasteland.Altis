@@ -17,7 +17,8 @@ MainMissions =
 	["mission_MBT", 1],
 	["mission_LightArmVeh", 1],
 	["mission_ArmedHeli", 1],
-	["mission_CivHeli", 1]
+	["mission_CivHeli", 1],
+	["mission_HostileJetFormation", 0.5]
 ];
 
 SideMissions =
@@ -26,16 +27,18 @@ SideMissions =
 	["mission_MiniConvoy", 1],
 	["mission_SunkenSupplies", 1],
 	["mission_TownInvasion", 2],
-	//["mission_AirWreck", 1.5],
-	//["mission_WepCache", 1.5],
-	["mission_Outpost", 3],
-	["mission_Truck", 1]
+	["mission_AirWreck", 1.5],
+	["mission_WepCache", 1.5],
+	["mission_Truck", 1],
+	["mission_GeoCache", 1],
+	["mission_HostileJet", 0.5]
 ];
 
 MoneyMissions =
 [
 	["mission_MoneyShipment", 1],
-	["mission_SunkenTreasure", 1]
+	["mission_SunkenTreasure", 2],
+	["mission_Hackers", 0.5]
 ];
 
 MainMissions = [MainMissions, [["A3W_heliPatrolMissions", ["mission_Coastal_Convoy", "mission_HostileHeliFormation"]], ["A3W_underWaterMissions", ["mission_ArmedDiversquad"]]]] call removeDisabledMissions;

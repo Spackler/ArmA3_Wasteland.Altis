@@ -53,6 +53,27 @@ switch (true) do
 			["You've taken out your earplugs.", 5] call mf_notify_client;
 		};
 	};
+
+	// Emergency Eject - Del Key
+	case (_key == 211):
+	{	
+		[-9, false, true, ""] execVM "client\actions\forceEject.sqf";
+	};
+	
+	// Holster /Unholster Weapon - H Key
+	case (_key == 35):
+	{
+		if (currentweapon player != "") then
+		{
+			player action ["SwitchWeapon", player, player, 100];
+			["Weapon holstered!", 5] call mf_notify_client;
+		}
+		else
+		{
+			player action ["SwitchWeapon", player, player, 0];
+			["Unholstered, fire when ready!", 5] call mf_notify_client;
+		};
+	};
 };
 
 // ********** Action keys **********

@@ -13,12 +13,23 @@ _uniform = [_player, "uniform"] call getDefaultClothing;
 _vest = [_player, "vest"] call getDefaultClothing;
 _headgear = [_player, "headgear"] call getDefaultClothing;
 _goggles = [_player, "goggles"] call getDefaultClothing;
+_backpack = [_player, "backpack"] call getDefaultClothing;
 
-if (_uniform != "") then { _player addUniform _uniform };
+//Remove all gear
+removeUniform player;
+removeVest player;
+removeHeadgear player;
+removeGoggles player;
+removeBackpackGlobal player;
+
+
+
+if (_uniform != "") then { _player forceAddUniform _uniform };
 if (_vest != "") then { _player addVest _vest };
 if (_headgear != "") then { _player addHeadgear _headgear };
 if (_goggles != "") then { _player addGoggles _goggles };
 
+if (_backpack != "") then { _player addBackpack _backpack };
 sleep 0.1;
 
 // Remove GPS
@@ -52,7 +63,7 @@ switch (true) do
 	};
 	case (["_engineer_", typeOf _player] call fn_findString != -1):
 	{
-		_player addItem "MineDetector";
+		//player addItem "MineDetector";
 		_player addItem "Toolkit";
 	};
 	case (["_sniper_", typeOf _player] call fn_findString != -1):

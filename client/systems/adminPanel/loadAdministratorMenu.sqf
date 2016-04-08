@@ -20,7 +20,11 @@ if ([_uid, 2] call isAdmin) then {
 
 	_panelOptions = ["Player Management",
 					"Vehicle Management",
-					"Group Leader Markers"
+					"Unstuck player",
+					"Teleport",
+					"Teleport player to me",
+					"Teleport me to player",
+					"Money"
 	];
 
 	{

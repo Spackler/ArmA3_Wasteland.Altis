@@ -88,6 +88,14 @@ class playerSettings {
 			w = 0.3; h = 0.05;
 		};
 
+		class effectsText : w_RscText {
+			idc = -1;
+			text = "Effects:";
+			sizeEx = 0.025;
+			x = 0.185; y = 0.40;
+			w = 0.3; h = 0.02;
+		};
+
 		class distanceText : w_RscText {
 			idc = view_range_text;
 			text = "View range:";
@@ -95,7 +103,7 @@ class playerSettings {
 			x = 0.03; y = 0.40;
 			w = 0.3; h = 0.02;
 		};
-
+		
 		class uptimeText : w_RscText {
 			idc = uptime_text;
 			text = "";
@@ -183,6 +191,22 @@ class playerSettings {
 			w = 0.125; h = 0.033 * safezoneH;
 		};
 
+		class btnDistanceEffects : w_RscButton {
+			idc = -1;
+			text = "Effects";
+			onButtonClick = "[] execVM 'addons\disableEnvironment\disableEnvironment.sqf'";
+			x = 0.165; y = 0.43;
+			w = 0.125; h = 0.033 * safezoneH;
+		};		
+		
+		class TOParmaInfoButton : w_RscButton {
+			idc = -1;
+			text = "TOParma.com Info";
+			onButtonClick = "[] execVM 'addons\TOParmaInfo\loadTOParmaInfo.sqf'";
+			x = 0.228; y = 0.254;
+			w = 0.225; h = 0.033 * safezoneH;
+		};
+		
 		class btnDistanceInsane : w_RscButton {
 			text = "Insane";
 			onButtonClick = "setViewDistance 5000;";

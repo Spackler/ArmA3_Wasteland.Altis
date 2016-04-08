@@ -28,13 +28,13 @@ if (_uid call isAdmin) then
 	_playerData = _playerListBox lbData _index;
 
 	{
-		if (getPlayerUID _x == _playerData) exitWith
-		{
+		if (str(_x) == _playerData) then {
 			_target = _x;
+			_check = 1;
 		};
-	} forEach allPlayers;
+	} forEach playableUnits;
 
-	if (isNil "_target" || {isNull _target}) exitWith{};
+	if (_check == 0) exitWith{};
 
 	switch (_switch) do
 	{
@@ -48,7 +48,6 @@ if (_uid call isAdmin) then
 					if (!([player] call camera_enabled)) then
 					{
 						[] call camera_toggle;
-						["PlayerMgmt_Spectate", format ["%1 (%2)", name _target, getPlayerUID _target]] call notifyAdminMenu;
 					};
 
 					[player, _target] call camera_attach_to_target;
@@ -70,24 +69,20 @@ if (_uid call isAdmin) then
 			_warnText = ctrlText _warnMessage;
 			_playerName = name player;
 			[format ["Message from Admin: %1", _warnText], "A3W_fnc_titleTextMessage", _target, false] call A3W_fnc_MP;
-			["PlayerMgmt_Warn", format ["%1 (%2) - %3", name _target, getPlayerUID _target, _warnText]] call notifyAdminMenu;
 		};
 		case 2: //Slay
 		{
-			if (damage _target < 1) then { _target setDamage 1 }; // if check required to prevent "Killed" EH from getting triggered twice
-			["PlayerMgmt_Slay", format ["%1 (%2)", name _target, getPlayerUID _target]] call notifyAdminMenu;
+			_target setDamage 1;
 		};
 		case 3: //Unlock Team Switcher
 		{
 			pvar_teamSwitchUnlock = getPlayerUID _target;
 			publicVariableServer "pvar_teamSwitchUnlock";
-			["PlayerMgmt_UnlockTeamSwitch", format ["%1 (%2)", name _target, getPlayerUID _target]] call notifyAdminMenu;
 		};
 		case 4: //Unlock Team Killer
 		{
 			pvar_teamKillUnlock = getPlayerUID _target;
 			publicVariableServer "pvar_teamKillUnlock";
-			["PlayerMgmt_UnlockTeamKill", format ["%1 (%2)", name _target, getPlayerUID _target]] call notifyAdminMenu;
 		};
 		case 5: //Remove All Money
 		{
@@ -98,29 +93,49 @@ if (_uid call isAdmin) then
 					_x setVariable["cmoney",0,true];
 				};
 			}forEach playableUnits;
-			["PlayerMgmt_RemoveMoney", format ["%1 (%2)", name _target, getPlayerUID _target]] call notifyAdminMenu;
 		};
-		case 6: //Remove All Weapons
+		case 6: //Remove All Items, Gear, Etc.
 		{
-			/*_targetUID = getPlayerUID _target;
+			_targetUID = getPlayerUID _target;
 			{
 				if(getPlayerUID _x == _targetUID) exitWith
 				{
 					removeAllWeapons _x;
+					removeHeadgear _x:
+					removeGoggles _x;
+					removeVest _x;
+					removeBackpack _x;
+					removeUniform _x;
+					removeAllAssignedItems _x;
+					_x setVariable ["cmoney", 0, true];
 				};
-			}forEach playableUnits;*/
-			["This option has been disabled due to having never worked at all in the first place."] spawn BIS_fnc_guiMessage;
+			}forEach playableUnits;
 		};
-		case 7: //Check Player Gear
+		case 7: //Burn Player
 		{
-			/*_targetUID = getPlayerUID _target;
+			_targetUID = getPlayerUID _target;
 			{
 				if(getPlayerUID _x == _targetUID) exitWith
 				{
-					createGearDialog [_x, "RscDisplayInventory"];
+					_target setDamage 0.48;
+					_target setHitPointDamage ["hitBody", 0.6];
+					player removeItems "FirstAidKit";
+					_smoke = "SmokeShellOrange" createVehicle position player;
+					_smoke attachTo [player, [-0.1, 0.1, 0.15], "Pelvis"];
+					_smoke setVectorDirAndUp [ [0.5, 0.5, 0], [-0.5, 0.5, 0] ];
 				};
-			}forEach playableUnits;*/
-			["This option has been disabled due to having never worked at all in the first place."] spawn BIS_fnc_guiMessage;
+			}forEach playableUnits;
 		};
+		/* case 8: //Kick Player
+		{
+			_targetUID = getPlayerUID _target;
+			{
+				if(getPlayerUID _x == _targetUID) then
+				{
+					preprocessFile 'client\functions\quit.sqf';
+				};
+			}forEach playableUnits;
+		}; */
+		
 	};
 };
