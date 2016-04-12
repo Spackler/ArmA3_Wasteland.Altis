@@ -9,8 +9,8 @@ if (!isServer) exitWith {};
 MainMissions =
 [
 	// Mission filename, weight
-	["mission_ArmedDiversquad", 1],
-	["mission_Coastal_Convoy", 1],
+	//["mission_ArmedDiversquad", 1],
+	//["mission_Coastal_Convoy", 1],
 	["mission_Convoy", 1],
 	["mission_HostileHeliFormation", 0.5],
 	["mission_APC", 1],
@@ -25,20 +25,23 @@ SideMissions =
 [
 	["mission_HostileHelicopter", 0.5],
 	["mission_MiniConvoy", 1],
-	["mission_SunkenSupplies", 1],
+	//["mission_SunkenSupplies", 1],
 	["mission_TownInvasion", 2],
-	["mission_AirWreck", 1.5],
-	["mission_WepCache", 1.5],
+	["mission_AirWreck", 1],
+	["mission_WepCache", 1],
 	["mission_Truck", 1],
 	["mission_GeoCache", 1],
-	["mission_HostileJet", 0.5]
+	["mission_HostileJet", 0.5],
+	["mission_Sniper", 1.5],
+	["mission_Outpost", 1.5]
 ];
 
 MoneyMissions =
 [
 	["mission_MoneyShipment", 1],
-	["mission_SunkenTreasure", 2],
-	["mission_Hackers", 0.5]
+	//["mission_SunkenTreasure", 2],
+	["mission_Hackers", 0.3],
+	["mission_Roadblock", 1]
 ];
 
 MainMissions = [MainMissions, [["A3W_heliPatrolMissions", ["mission_Coastal_Convoy", "mission_HostileHeliFormation"]], ["A3W_underWaterMissions", ["mission_ArmedDiversquad"]]]] call removeDisabledMissions;
@@ -51,6 +54,8 @@ MoneyMissions = [MoneyMissions, [["A3W_underWaterMissions", ["mission_SunkenTrea
 
 MissionSpawnMarkers = [];
 SunkenMissionMarkers = [];
+RoadblockMissionMarkers =[];
+SniperMissionMarkers =[];
 {
 	switch (true) do
 	{
@@ -61,6 +66,14 @@ SunkenMissionMarkers = [];
 		case (["SunkenMission_", _x] call fn_startsWith):
 		{
 			SunkenMissionMarkers pushBack [_x, false];
+		};
+		case (["RoadBlock_", _x] call fn_startsWith):
+		{
+			RoadblockMissionMarkers pushBack [_x, false];
+		};
+		case (["Sniper_", _x] call fn_startsWith):
+		{
+			SniperMissionMarkers pushBack [_x, false];
 		};
 	};
 } forEach allMapMarkers;

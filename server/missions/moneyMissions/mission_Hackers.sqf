@@ -7,7 +7,7 @@
 if (!isServer) exitwith {};
 #include "moneyMissionDefines.sqf";
 
-private ["_positions", "_camonet", "_laptop", "_obj1", "_obj2", "_obj3", "_obj4", "_vehicleName","_table"];
+private ["_positions", "_camonet", "_laptop", "_obj1", "_obj2", "_vehicleName","_table"];//add obj3 and obj4 back here 
 
 _setupVars =
 {
@@ -78,7 +78,7 @@ _failedExec =
 	// Mission failed
 	RemoveLaptopHandler = _laptop;
 	publicVariable "RemoveLaptopHandler";
-	{ deleteVehicle _x } forEach [_camonet, _obj1, _obj2, _obj3, _obj4, _laptop, _table];
+	{ deleteVehicle _x } forEach [_camonet, _obj1, _obj2, _laptop, _table]; //must add obj3 and obj4 back if uncommenting them out
 };
 
 _successExec =
@@ -87,8 +87,8 @@ _successExec =
 	RemoveLaptopHandler = _laptop;
 	publicVariable "RemoveLaptopHandler";
 	{ deleteVehicle _x } forEach [_camonet, _laptop, _table];
-	{ _x setVariable ["R3F_LOG_disabled", false, true] } forEach [_obj1, _obj2, _obj3, _obj4];
-	{ _x setVariable ["allowDamage", true, true] } forEach [_obj1, _obj2, _obj3, _obj4];
+	{ _x setVariable ["R3F_LOG_disabled", false, true] } forEach [_obj1, _obj2];//must add obj3 and obj4 back if uncommenting them out
+	{ _x setVariable ["allowDamage", true, true] } forEach [_obj1, _obj2];//must add obj3 and obj4 back if uncommenting them out
 
 	_successHintMessage = format ["The laptop is hacked. Go and kill the hacker to get your money back!"];
 };

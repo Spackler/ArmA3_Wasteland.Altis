@@ -81,6 +81,6 @@ switch (true) do
    
     default
     {
-		hint "No gear to load";
+		hint "";
     };
 };

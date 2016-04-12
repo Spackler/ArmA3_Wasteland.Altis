@@ -36,41 +36,19 @@ sleep 0.1;
 _player unlinkItem "ItemGPS";
 
 // Remove radio
-//_player unlinkItem "ItemRadio";
+_player unlinkItem "ItemRadio";
+
+// Add GPS
+_player linkItem "ItemGPS";
 
 // Remove NVG
 if (hmd _player != "") then { _player unlinkItem hmd _player };
 
 // Add NVG
-_player linkItem "NVGoggles";
-
-_player addBackpack "B_AssaultPack_rgr";
-
-_player addMagazine "9Rnd_45ACP_Mag";
-_player addWeapon "hgun_ACPC2_F";
-_player addMagazine "9Rnd_45ACP_Mag";
-_player addMagazine "9Rnd_45ACP_Mag";
-_player addMagazine "9Rnd_45ACP_Mag";
-_player addItem "FirstAidKit";
-_player selectWeapon "hgun_ACPC2_F";
-
-switch (true) do
-{
-	case (["_medic_", typeOf _player] call fn_findString != -1):
-	{
-		_player removeItem "FirstAidKit";
-		_player addItem "Medikit";
-	};
-	case (["_engineer_", typeOf _player] call fn_findString != -1):
-	{
-		//player addItem "MineDetector";
-		_player addItem "Toolkit";
-	};
-	case (["_sniper_", typeOf _player] call fn_findString != -1):
-	{
-		_player addWeapon "Rangefinder";
-	};
-};
+ _player linkItem "NVGoggles";	
+ 
+ // Loadouts here
+_this call classes;
 
 if (_player == player) then
 {

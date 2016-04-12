@@ -2,7 +2,7 @@
 //This takes values from command menu, and some passed variables, and interacts with client and sends commands to server
 //Author: Apoc
 //Credits: Some methods taken from Cre4mpie's airdrop scripts, props for the idea!
-#define APOC_coolDownTimer (["APOC_coolDownTimer", 600] call getPublicVar)
+#define APOC_coolDownTimer (["APOC_coolDownTimer", 300] call getPublicVar)
 
 scriptName "APOC_cli_startAirdrop";
 private ["_type","_selection","_player","_coolDownTimer"]; //Variables coming from command menu

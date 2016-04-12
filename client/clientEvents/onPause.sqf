@@ -92,12 +92,12 @@ if (!isNil "_getPublicVar" && !isNil "_isConfigOn") then
 							{
 								if (_unconscious) then
 								{
-									_text = "\n\n\n\nCannot pussy out during bleeding!";
+									_text = "\n\n\n\nCannot disconnect bleeding!";
 								}
 								else
 								{
 									_timer = with missionNamespace do { (_abortDelay - (diag_tickTime - _timeStamp)) call fn_formatTimer };
-									_text = format ["\nCannot pussy out during combat! (%1)", _timer];
+									_text = format ["\nCannot disconnect during combat! (%1)", _timer];
 								};
 
 								cutText [_text, "PLAIN DOWN"];
