@@ -42,7 +42,6 @@ loadScreen = "mapConfig\Loading.jpg";
 #include "client\gui_base.hpp"
 #include "addons\R3F_ARTY_AND_LOG\desc_include.h"
 #include "client\systems\ui_toolkit.hpp"
-#include "addons\taw_vd\dialog.hpp"
 #include "client\systems\common.hpp"
 #include "client\items\warchest\dialog.hpp"
 #include "client\items\atm\atm_gui.hpp"
@@ -78,14 +77,17 @@ class RscTitles
 	#include "addons\statusBar\statusBar.hpp"
 };
 
+	#include "addons\CHVD\dialog.hpp"
+	
 class CfgFunctions
 {
-	#include "addons\taw_vd\CfgFunctions.hpp"
 	class A3W
 	{
 		#include "client\CfgFunctions.hpp"
 		#include "server\CfgFunctions.hpp"
 	};
+	
+	#include "addons\CHVD\CfgFunctions.hpp"
 };
 
 class CfgNotifications
